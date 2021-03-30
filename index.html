@@ -1,0 +1,41 @@
+<head>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+
+        tr {
+            border: 1px solid black;
+        }
+
+        td {
+            border-right: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        let trElement = '',
+            mtrx = Array.from(Array(5), () => Array(5))
+        for (i = 0; i < 5; i++) {
+            let tdElement = ''
+            for (j = 0; j < 5; j++) {
+                mtrx[i][j] = `${i + 1},${j + 1}`
+
+                tdElement += Object.assign(document.createElement('td'),
+                    { innerText: mtrx[i][j] }).outerHTML
+            }
+            trElement += Object.assign(document.createElement('tr'),
+                { innerHTML: tdElement }).outerHTML
+        }
+
+        table = Object.assign(document.createElement('table'),
+            { innerHTML: trElement }
+        )
+
+        document.body.appendChild(table)
+
+        console.log(table)
+    </script>
+</body>
